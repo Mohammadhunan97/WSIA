@@ -1,0 +1,40 @@
+/* Contact container */
+div.contact-flex-container {
+	display: flex;
+	flex-flow: row wrap;
+}
+/* Contact box */
+div.contact-flex-item {
+	display: flex;
+	flex: 1 1 auto;
+	border: 1px solid red;
+}
+div.contact-box {
+	flex: 1 1 auto;
+	margin: .6250em; /* 10px */;
+	padding: .6250em; /* 10px */;
+	border: 1px solid #ccc;
+	background: #e5e5e5;
+	text-align: center;
+}
+div.contact-box > h3 {
+	margin-top: 0;
+}
+div.contact-box > p {
+	font-size: .875em; /* 14px */
+}
+/* Media size adjustments */
+	/* If screen width is greater than 900px */
+	/* BUG: Now offset by 14px for some reason */
+
+	/* If screen width is greater than 600px and less than or equal to 900px */
+	@media only screen and (min-width: 601px) and (max-width: 914px) {
+		div.contact-box {
+			flex: 2 2 auto;
+		} 
+
+	/* If screen width is less than or equal to 600px */
+	@media only screen and (max-width: 600px) {
+		div.contact-box {
+			flex: 2 2 auto;
+		} 

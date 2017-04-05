@@ -1,3 +1,13 @@
+// Position left and right border around active navbar item
+function positionActiveBorder() {
+  if ($('li.active').contains('ul.subnavbar') == true) {
+    $('li.active').addClass('before-active after-active');
+  }
+  else {
+    $('li.active').prev('li').addClass('before-active');
+    $('li.active').next('li').addClass('after-active');
+  }
+}
 // Position subnavbar function
 function positionSubnavbar() {
 	// Calculate height of navbar
@@ -14,6 +24,8 @@ function positionContent() {
 }
 // Main function
 $(document).ready(function() {
+  // Position left and right border around active navbar item
+  // positionActiveBorder()
 	// Position subnavbar
 	positionSubnavbar();
 	// Position content
