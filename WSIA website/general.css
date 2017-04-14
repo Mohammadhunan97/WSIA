@@ -1,5 +1,9 @@
 /* Body */
-body { margin: 0; font-family: 'Open Sans', sans-serif; }	
+body { 
+	overflow-y: overlay
+	margin: 0; 
+	font-family: 'Open Sans', sans-serif;
+}	
 /* Header */
 #header {
 	z-index: 1;
@@ -8,6 +12,7 @@ body { margin: 0; font-family: 'Open Sans', sans-serif; }
 	left: 0;
 	right: 0;
 	width: 900px;
+	height: 75px;
 	margin: auto;
 }
 	/* Navbar and subnavbar */
@@ -15,12 +20,14 @@ body { margin: 0; font-family: 'Open Sans', sans-serif; }
 		display: flex;
 		width: 100%;
 		padding: 0;
+		box-sizing: border-box;
 		background: #000;
 		list-style-type: none;
 	}
 	/* Navbar */
 	#navbar {
-		height: 75px;
+		height: 100%;
+		box-sizing: border-box;
 		border-top: 2px solid #323232;
 		border-left: 2px solid #323232;
 		border-right: 2px solid #323232;
@@ -41,18 +48,20 @@ body { margin: 0; font-family: 'Open Sans', sans-serif; }
 		background: #323232;
 	}
 	/* Navbar list item, active page */
-	#navbar > li.active {
+	#navbar > #active {
 		border-bottom: 0;
 		background: #fff;
 	}
 	/* Navbar list item-contained link, active page */
-	#navbar > li.active > a {
+	#navbar > #active > a {
 		color: #000;
 	}
-	/* Sibling before active page */
-	#navbar > li.before-active { box-shadow: inset -2px 0px 0px 0px #323232; }
-	/* Sibling after active page */
-	#navbar > li.after-active { box-shadow: inset 2px 0px 0px 0px #323232; }
+	/* Class to apply border before active page */
+	.active-drop { box-shadow: inset 2px 0px 0px 0px #323232, inset -2px 0px 0px 0px #323232; }
+	/* Class to apply border before active page */
+	.before-active { box-shadow: inset -2px 0px 0px 0px #323232; }
+	/* Class to apply border after active page */
+	.after-active { box-shadow: inset 2px 0px 0px 0px #323232; }
 	/* Navbar and subnavbar list item-contained link */
 	#navbar li > a {
 		flex: 1 1 auto;
@@ -77,6 +86,7 @@ body { margin: 0; font-family: 'Open Sans', sans-serif; }
 	#navbar > li > #subnavbar {
 		visibility: hidden;
 		position: absolute;
+		left: 0;
 		flex: 1 1 auto;
 		flex-direction: column;
 		border-left: 2px solid #323232;
@@ -88,15 +98,15 @@ body { margin: 0; font-family: 'Open Sans', sans-serif; }
 		visibility: visible;
 	}
 	/* Subnavbar, when parent is active */
-	#navbar > li.active > #subnavbar {
+	#navbar > #active > #subnavbar {
 		background: #fff;
 	}
 	/* Subnavbar list item on hover, when parent is active */
-	#navbar > li.active > #subnavbar > li:hover {
+	#navbar > #active > #subnavbar > li:hover {
 		background: #e5e5e5;
 	}
 	/* Subnavbar list item-contained link, when parent is active */
-	#navbar > li.active > #subnavbar > li > a {
+	#navbar > #active > #subnavbar > li > a {
 		color: #000;
 	}	
 	/* Subavbar list item-contained link */
@@ -107,16 +117,19 @@ body { margin: 0; font-family: 'Open Sans', sans-serif; }
 #content {
 	position: relative;
 	width: 900px;
-	height: 100%;
 	margin: 0 auto;
 	padding: 0;
+	box-sizing: border-box;
 	border-left: 2px solid #323232;
 	border-right: 2px solid #323232;
+	border-bottom: 2px solid #323232;
 }
 	/* Content container */
 	div.content-container {
 		margin: .6250em; /* 10px */;
 	}
+	/* Clear */
+	div.clear { clear: both; }
 /* Footer */
 #footer {
 	position: absolute;
@@ -125,9 +138,13 @@ body { margin: 0; font-family: 'Open Sans', sans-serif; }
 	display: flex;
 	align-items: center;
 	width: 900px;
+	min-height: 150px;
 	margin: 0 auto;
-	padding: .6250em; /* 10px */
-	border: 2px solid #323232;
+	padding: 0;
+	box-sizing: border-box;
+	border-left: 2px solid #323232;
+	border-right: 2px solid #323232;
+	border-bottom: 2px solid #323232;
 	background: #000;
 	color: #fff;
 	text-align: center;
@@ -137,31 +154,15 @@ body { margin: 0; font-family: 'Open Sans', sans-serif; }
 	div.footer-section {
 		flex: 1 1 auto;
 		width: 100%;
+		padding: .6250em; /* 10px */
 	}
-/* Miscellaneous */
-	/* Horizontal rule color */
-	hr {
-		border-color: #e5e5e5; /* Chrome, Safari */
-		background-color: #e5e5e5; /* Firefox, Opera */
-		color: #e5e5e5; /* IE 7+ */
+/* Media screen adjustments. On resize... */
+	/* If screen width is less than or equal to 900px (e.g.: tablet, mobile) ... */
+	@media only screen and (max-width: 900px) { 
+		/* Scale header, content and footer width */
+		#header, #content, #footer { width: 100%; }
 	}
-	/* Profile picture */
-	img.profile {
-		float: left;
-		margin-right: .6250em; /* 10px */
-		border: 1px solid #000;
-	}
-	/* Clear */
-	div.clear {
-		clear: both;
-	}
-/* Media size adjustments */
-	/* If screen width is less than or equal to 900px (e.g.: tablet, mobile) */
-	/* BUG: Now offset by 14px for some reason */
-	@media only screen and (max-width: 914px) { 
-		/* Scaling header, content and footer width */
-		#header, #fadebox, #content, #footer { width: 100%; }
-	/* If screen width is less than or equal to 600px (e.g.: mobile) */
+	/* If screen width is less than or equal to 600px (e.g.: mobile) ... */
 	@media only screen and (max-width: 600px) { 
 		/* Header */
 			/* Make navbar columnar */

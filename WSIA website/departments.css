@@ -1,0 +1,33 @@
+/* Department section */
+div.department-section {
+	width: 100%;
+	overflow: hidden;
+	padding: .6250em /* 10px */;
+}
+/* Department image container */
+div.department-image-container {
+	margin-right: .6250em /* 10px */;
+	float: left;
+}
+/* Department image container images */
+div.department-image-container img {
+	border: 1px solid #000;
+}
+/* Clear-on-small-screen, for when screen below 914px */
+div.clear-on-small-screen {
+	display: none;
+	clear: both;
+}
+/* Media screen adjustments. On resize... */
+	/* If screen width is less than or equal to 900px (e.g.: tablet, mobile) ... */
+	@media only screen and (max-width: 900px) {
+		/* Center text */
+		div.department-section { text-align: center; }
+		/* Center images */
+		div.department-image-container {
+			float: unset;
+			margin: auto;
+		}
+		/* Display clear-on-small-screen */
+		div.clear-on-small-screen { display: block; }
+	}

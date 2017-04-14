@@ -1,14 +1,21 @@
-/* Contact container */
+/* Contact flex container */
 div.contact-flex-container {
 	display: flex;
 	flex-flow: row wrap;
 }
-/* Contact box */
+/* Contact flex item */
 div.contact-flex-item {
 	display: flex;
 	flex: 1 1 auto;
-	border: 1px solid red;
+	width: 25%;
 }
+/* Contact flex item double */
+div.contact-flex-item-double {
+	display: flex;
+	flex: 1 1 auto;
+	min-width: 50%;
+}
+/* Contact box */
 div.contact-box {
 	flex: 1 1 auto;
 	margin: .6250em; /* 10px */;
@@ -17,24 +24,16 @@ div.contact-box {
 	background: #e5e5e5;
 	text-align: center;
 }
-div.contact-box > h3 {
-	margin-top: 0;
-}
-div.contact-box > p {
-	font-size: .875em; /* 14px */
-}
-/* Media size adjustments */
-	/* If screen width is greater than 900px */
-	/* BUG: Now offset by 14px for some reason */
-
-	/* If screen width is greater than 600px and less than or equal to 900px */
-	@media only screen and (min-width: 601px) and (max-width: 914px) {
-		div.contact-box {
-			flex: 2 2 auto;
-		} 
-
-	/* If screen width is less than or equal to 600px */
+div.contact-box > h3 { margin-top: 0; }
+div.contact-box > p { font-size: .875em; /* 14px */ }
+/* Media size adjustments. On resize ... */
+/* If screen width is greater than 600px and less than or equal to 900px (e.g.: tablet, mobile) ... */
+	@media only screen and (min-width: 601px) and (max-width: 900px) {
+		/* Flex contact-flex-items to occupy two columns */
+		div.contact-flex-item { width: 50%; } 
+	}
+	/* If screen width is less than or equal to 600px (e.g.: mobile) ... */
 	@media only screen and (max-width: 600px) {
-		div.contact-box {
-			flex: 2 2 auto;
-		} 
+		/* Flex contact-flex-items to occupy one column */
+		div.contact-flex-item, div.contact-flex-item-double { width: 100%; } 
+	}
