@@ -1,23 +1,3 @@
-// Set content minimum height (DISABLED)
-// function setContentMinimumHeight() {
-// 	var contentHeight = $(document).height() - ($('#header').height() + $('#footer').height());
-// 	$('#content').css('min-height', contentHeight - 2); // until fix border-boxing
-// }
-// Exclude scrollbars from width (NOT WORKING)
-function excludeScrollbarsFromWidth() {
-	// Check if body height is higher than window height
-	if ($("body").height() > $(window).height()) {
-		$('body').css('padding-bottom', '15px');
-	} else {
-		$('body').css('padding-bottom', '0');
-	}
-	// Check if body width is higher than window width
-	if ($('body').width() > $(window).width()) {
-		$('body').css('padding-right', '15px');
-	} else {
-		$('body').css('padding-right', '0');
-	}
-}
 // Position left and right borders around active navbar item
 function positionActiveBorder() {
 	$("#active").each(function () {
@@ -42,10 +22,8 @@ function positionContent() {
 }
 // Main function
 $(document).ready(function() {
-	// Exclude scrollbars from width
-	excludeScrollbarsFromWidth()
 	// Position left and right borders around active navbar item
-	positionActiveBorder()
+	positionActiveBorder();
 	// Position subnavbar
 	positionSubnavbar();
 	// Position content
@@ -53,7 +31,7 @@ $(document).ready(function() {
 	// On resize...
 	$(window).resize(function() {
 		// Exclude scrollbars from width
-		excludeScrollbarsFromWidth()
+		excludeScrollbarsFromWidth();
 		// Reposition content
 		positionContent();
 	});
