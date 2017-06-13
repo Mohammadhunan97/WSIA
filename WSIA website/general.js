@@ -20,7 +20,7 @@ function positionContent() {
 	// Make top margin of content equal to navbar height
 	$("#content").css('margin-top', navHeight + 2 + 'px'); // + 2px until I implement border-box in navbar
 }
-// Main function
+// On document ready...
 $(document).ready(function() {
 	// Position left and right borders around active navbar item
 	positionActiveBorder();
@@ -28,13 +28,11 @@ $(document).ready(function() {
 	positionSubnavbar();
 	// Position content
 	positionContent();
-	// On resize...
-	$(window).resize(function() {
-		// Exclude scrollbars from width
-		excludeScrollbarsFromWidth();
-		// Reposition content
-		positionContent();
-	});
+});
+// On resize...
+$(window).resize(function() {
+	// Reposition content
+	positionContent();
 });
 /* Fixed header anchor fix (by Ian Clark) */
 (function(document, history, location) {

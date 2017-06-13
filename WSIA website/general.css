@@ -1,8 +1,30 @@
-/* Body */
-body { 
-	margin: 0; 
-	font-family: 'Open Sans', sans-serif;
-}	
+/* General / boilerplate styles */
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:500,500i,700,700i');
+* { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+html, body { height: 100%; }
+html { font-size: 6.25%; }
+body { margin: 0; font-family: 'Cormorant Garamond', serif; font-size: 16em; }
+h1, h2, h3, h4, h5, h6, p { margin: 0 0 0.5rem 0; }
+h1 { font-size: 4em; } h2 { font-size: 3.5em; } h3 { font-size: 3em; }
+h4 { font-size: 2.5em; } h5 { font-size: 2em; } h6 { font-size: 1.5em; }
+p { font-size: 1em; line-height: 1.5; }
+.paragraph { text-indent: 2em; text-align: justify; }
+blockquote { margin: 1rem 4em 1rem 4em; text-align: justify; }
+q { quotes: "\201C" "\201D" "\2018" "\2019"; }
+html[lang="fr"] q { quotes: "\00ab" "\00bb"; }
+cite { font-style: normal; }
+cite:before { content: "\0020\2014\0020"; }
+figure { margin: 1em; text-align: center; }
+@media (min-width: 750px) {
+	.inline-left { float: left; margin: 1em 1em 1em 0; } 
+	.inline-right { float: right; margin: 1em 0 1em 1em; }
+}
+figure img { display: inline; max-width: 100%; margin: 0.5em 0; }
+.greyscale { -webkit-filter: grayscale(100%); filter: grayscale(100%); }
+.sepia { -webkit-filter: grayscale(100%); filter: sepia(100%); }
+
+/* Thematic styles */
+body { font-family: 'Open Sans', sans-serif; }	
 /* Header */
 #header {
 	z-index: 1;
